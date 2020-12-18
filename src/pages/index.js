@@ -19,6 +19,10 @@ const IndexPage = () => {
 
       <main className={'h-bg'}>
         <title>Home</title>
+        <div className={'container'}>
+          <h1 className={'h-title'}>Todos os caminham levam à morte. Perca-se</h1>
+          <p className={'h-autor'}>Jorge Luis Borges</p>
+        </div>
       </main>
 
     </section>
