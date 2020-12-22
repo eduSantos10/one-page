@@ -6,9 +6,36 @@ $bgPreto: rgba(
 );
 
 .h-bg {
-  background-color: $branco;
-  background-position: center;
-  object-fit: cover;
+  z-index: -1000;
+  background-image: linear-gradient(to top, #b2b6ba 0%, white 100%);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.h-setaDown {
+  width: 50px;
+  height: 50px;
+  margin: 100px;
+  fill: black;
+  position: absolute;
+  top: 100px;
+}
+
+.h-btnDown {
+  text-align: center;
+  position: absolute;
+  bottom: 10%;
+  border: none;
+  background-color: transparent;
+}
+.h-btnDown:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: none;
+}
+
+.h-content {
   width: 100vw;
   height: 100vh;
   padding: 0;
@@ -25,7 +52,6 @@ label.logo {
   color: $branco;
   line-height: 80px;
   font-size: 35px;
-  padding: 0 100px;
   font-weight: bold;
 }
 
@@ -103,6 +129,7 @@ input:checked ~ label .hamburguer:after {
 }
 
 nav {
+  padding: 0 50px;
   background-color: $bgPreto;
   height: 80px;
   width: 100%;
