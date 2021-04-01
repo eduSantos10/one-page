@@ -1,17 +1,10 @@
 @import "../../global.scss";
 $branco: #f0f0f0;
+$preto: #0f0f0f;
 $bgPreto: rgba(
   $color: #000000,
   $alpha: 0.867,
 );
-
-.h-bg {
-  z-index: -1000;
-  background-image: linear-gradient(to top, #b2b6ba 0%, white 100%);
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-}
 
 .h-setaDown {
   width: 50px;
@@ -23,6 +16,8 @@ $bgPreto: rgba(
 }
 
 .h-btnDown {
+  cursor: pointer;
+  margin: 10px;
   text-align: center;
   position: absolute;
   bottom: 10%;
@@ -128,7 +123,7 @@ input:checked ~ label .hamburguer:after {
   bottom: 0;
 }
 
-nav {
+.nav {
   padding: 0 50px;
   background-color: $bgPreto;
   height: 80px;
@@ -211,4 +206,96 @@ ul {
   to {
     border-right-color: transparent;
   }
+}
+
+@keyframes AnimationName1 {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 50% 75%;
+  }
+}
+@keyframes AnimationName2 {
+  0% {
+    background-position: 50% 75%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+@keyframes AnimationName3 {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.h_bg {
+  animation: AnimationName0 3s ease normal;
+  z-index: -1000;
+  background: linear-gradient(108deg, #231557, #44107a, #ff1361, #fff800);
+  background-size: 800% 800%;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+//  OUTROS STILOS
+
+.h_bg2 {
+  animation: AnimationName1 3s ease normal;
+  background-position: 50% 75%;
+}
+.h_bg3 {
+  animation: AnimationName2 3s ease normal;
+  background-position: 100% 100%;
+}
+.h_bg4 {
+  animation: AnimationName3 3s ease normal;
+  background-position: 0% 50%;
+}
+
+label.logo2 {
+  font-family: "Courier New", Courier, monospace;
+  color: $preto;
+  line-height: 80px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.barra2 {
+  position: absolute;
+  background-color: $branco;
+  height: 100vh;
+  width: 300px;
+  transition: all 5s linear;
+  right: -300px;
+}
+
+.nav2 {
+  padding: 0 50px;
+  background-color: $branco;
+  height: 80px;
+  width: 100%;
+  color: $branco;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.line {
+  border-right: 2px solid rgb(0, 0, 0);
+  color: rgba(0, 0, 0, 0.987);
+}
+
+.hamburguer2:before,
+.hamburguer2:after {
+  background: $preto !important;
+}
+
+.hamburguer2 {
+  background: $preto !important;
 }

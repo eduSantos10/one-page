@@ -2,16 +2,20 @@ import * as React from "react"
 import "../styles/index.scss"
 var p;
 var textos = ["Bem vindo!", "O foco é desenvolvimento!", "Conhecimento gera conhecimento!", "Nunca é apenas um botão!", "Encontrou o que procura?"];
+let logoHeader = 'logo';
+let contentMenu = 'barra';
+let line = 'line';
+
 
 
 const IndexPage = () => {
 
   return (
     <section >
-      <div class="h-bg img-fluid"></div>
-      <nav>
+      <div className={'h_bg'}></div>
+      <nav className={'nav'}>
         {/* logo */}
-        <label className={'logo'}>.Me</label>
+        <label className={logoHeader}>.Me</label>
 
         {/* acesso do menu */}
         <input id="menu-hamburguer" type="checkbox" />
@@ -22,7 +26,7 @@ const IndexPage = () => {
         </label>
 
         {/* itens do menu */}
-        <div className={"barra"}> </div>
+        <div className={contentMenu}> </div>
         <ul>
           <li><a href="#" className={"linkMenu"}>Início</a></li>
           <li><a href="#" className={"linkMenu"}>Sobre</a></li>
@@ -33,11 +37,14 @@ const IndexPage = () => {
       </nav>
 
       <main className={'h-content'}>
+
         <title>Home</title>
+
         <div className={'container'}>
-          <p id="title" class="line typing-animation"></p>
+          <p id="title" className={line} class="typing-animation"></p>
         </div>
-        <button className={'h-btnDown'}>
+
+        <button className={'h-btnDown'} onClick={() => { changeTheme() }} >
           <svg x="0px" y="0px"
             width="50px" height="50px" viewBox="0 0 612 612" >
             <path className={'h-setaDown'} d="M604.501,134.782c-9.999-10.05-26.222-10.05-36.221,0L306.014,422.558L43.721,134.782
@@ -55,41 +62,59 @@ const IndexPage = () => {
 export default IndexPage
 
 
-function escrever(str, done) {
-  var char = str.split('').reverse();
-  var typer = setInterval(function () {
-    if (!char.length) {
-      clearInterval(typer);
-      return setTimeout(done, 500); // só para esperar um bocadinho
-    }
-    var next = char.pop();
-    p.innerHTML += next;
-  }, 100);
-}
+function changeTheme() {
 
-function limpar(done) {
-  var char = p.innerHTML;
-  var nr = char.length;
-  var typer = setInterval(function () {
-    if (nr-- == 0) {
-      clearInterval(typer);
-      return done();
-    }
-    p.innerHTML = char.slice(0, nr);
-  }, 100);
-}
-
-function rodape(conteudos, el) {
-  if (typeof window !== `undefined`) p = window.document.getElementById("title");
-  var atual = -1;
-  function prox(cb) {
-    if (atual < conteudos.length - 1) atual++;
-    else atual = 0;
-    var str = conteudos[atual];
-    escrever(str, function () {
-      limpar(prox);
-    });
+  if (typeof window.document.getElementsByClassName('h_bg4')[0] !== `undefined`) {
+    window.document.getElementsByClassName('h_bg4')[0].className = ' h_bg'
   }
-  prox(prox);
+
+  if (typeof window.document.getElementsByClassName('h_bg3')[0] !== `undefined`) {
+    window.document.getElementsByClassName('h_bg3')[0].className += ' h_bg4'
+  }
+  else if (typeof window.document.getElementsByClassName('h_bg2')[0] !== `undefined`) {
+    window.document.getElementsByClassName('h_bg2')[0].className += ' h_bg3'
+  } else {
+    window.document.getElementsByClassName('h_bg')[0].className += ' h_bg2'
+  }
+
 }
-rodape(textos);
+
+
+// function escrever(str, done) {
+//   var char = str.split('').reverse();
+//   var typer = setInterval(function () {
+//     if (!char.length) {
+//       clearInterval(typer);
+//       return setTimeout(done, 500); // só para esperar um bocadinho
+//     }
+//     var next = char.pop();
+//     p.innerHTML += next;
+//   }, 100);
+// }
+
+// function limpar(done) {
+//   var char = p.innerHTML;
+//   var nr = char.length;
+//   var typer = setInterval(function () {
+//     if (nr-- == 0) {
+//       clearInterval(typer);
+//       return done();
+//     }
+//     p.innerHTML = char.slice(0, nr);
+//   }, 100);
+// }
+
+// function rodape(conteudos, el) {
+//   if (typeof window !== `undefined`) p = window.document.getElementById("title");
+//   var atual = -1;
+//   function prox(cb) {
+//     if (atual < conteudos.length - 1) atual++;
+//     else atual = 0;
+//     var str = conteudos[atual];
+//     escrever(str, function () {
+//       limpar(prox);
+//     });
+//   }
+//   prox(prox);
+// }
+// rodape(textos);
